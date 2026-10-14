@@ -99,7 +99,7 @@ messages:
 
       send(self,@DoSpellEffect,#who=first(lTargets),#amount=iAmount);      
 
-      send(first(lTargets),@StartEnchantment,#what=self,
+      send(first(lTargets),@StartBoonEnchantment,#what=self,
                #time=BOON_HOUR,#state=iState);
       if who <> $
       {

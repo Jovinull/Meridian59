@@ -2782,6 +2782,24 @@ messages:
       return;
    }
 
+   StartBoonEnchantment(what = $,time = $,state = $)
+   {
+      local lNew_enchantment;
+
+      if Send(self,@IsLoggedOn)
+      {
+         Send(self,@StartEnchantment,#what=what,#time=time,#state=state);
+      }
+      else
+      {
+         lNew_enchantment = [time,what,state];
+         plEnchantments = Cons(lNew_enchantment,plEnchantments);
+         Send(self,@ResetPlayerFlagList,#who=self);
+      }
+
+      return;
+   }
+
    GetEnchantmentList()
    {
       return plEnchantments;
